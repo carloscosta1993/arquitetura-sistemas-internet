@@ -30,3 +30,24 @@ x = 1
 while x < 10 :
  print x
  x = x + 1
+
+for x in [1,7,13,2]:
+ print x
+
+for x in range(5) :
+ print x
+
+divide(2,1)
+
+def divide(x, y):
+ try:
+  result = x / y
+ except ZeroDivisionError:
+  print "division by zero!"
+ else:
+  print "result is", result
+ finally:
+  print "executing finally clause"
+
+
+
