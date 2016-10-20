@@ -1,22 +1,21 @@
 class rpnCalculator:
  
  def __init__(self):
-         self.memory = []
+         self.memory = [1,2,3,4,5]
 
  def pushValue(self,item):
 	self.memory.append(item)
 	
- def popValue(self, memory):
-	self.memory.pop()
-
+ def popValue(self):
+	self.memory.pop(0)
+	print "item: ", self.memory[0]
+	
  def printStack(self):
 	print "stack: ", self.memory
 
 val1 = rpnCalculator()
-val1.pushValue(5)
-val1.pushValue(4)
-val1.pushValue(3)
-val1.pushValue(2)
+val1.popValue()
+val1.pushValue(33333)
 val1.printStack()
 
 	
