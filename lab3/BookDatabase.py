@@ -4,7 +4,7 @@ import book
 import pickle
 
 
-class Database:
+class BookDatabase:
 
     def __init__(self, name):
         self.name = name
@@ -15,14 +15,14 @@ class Database:
         except IOError:
             self.biblioteca = {}
 
-    def insert_book(self, author, title, year):
+    def insertBook(self, author, title, year):
         identifier = len(self.biblioteca)
-        self.biblioteca[identifier] = book.book(author, title, year, identifier)
+        self.biblioteca[identifier] = book.Book(author, title, year, identifier)
         dataBaseFile = open('bd_dump'+self.name, 'wb')
-        pickle.dump(self.bilbioteca, dataBaseFile)
+        pickle.dump(self.biblioteca, dataBaseFile)
         dataBaseFile.close()
 
-    def listbooks(self, name):
+    def listBooks(self, name):
         ret_value = []
         for books in self.biblioteca.values():
             if books.author == name:
