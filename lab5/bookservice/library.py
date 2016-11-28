@@ -18,6 +18,7 @@ class library:
 			f.close()
 		except IOError:
 			self.bib = {}
+
 	def addBook(self, author, title, year):
 		b_id = len(self.bib)
 		self.bib[b_id] = book.book(author, title, year, b_id)
@@ -25,11 +26,12 @@ class library:
 		pickle.dump(self.bib, f)
 		f.close()
 
-
 	def getBook(self, b_id):
+		b_id = int(b_id)
 		try:
-			b = self.bib[b_id]
-			return {'id': b.id, 'author': b.author, 'title': b.title, 'date':b.year} 
+			for b in self.bib.values():
+				if b.id == b_id:
+					return {'id': b.id, 'author': b.author, 'title': b.title, 'date':b.year}
 		except:
 			return {}
 		pass
