@@ -2,6 +2,7 @@
 
 import library
 import pprint
+import bottle
 from bottle import Bottle, run, debug, request, template
 import json
 
@@ -9,8 +10,12 @@ app = Bottle()
 bd = library.library("mylib")
 
 @app.route('/')
+@bottle.view('index')
 def index():
-	return "Welcome to the book <b>library</b>"
+	info = {'title': 'Welcome to the',
+			'content': 'LIBRARY',
+			}
+	return template('index.html', info)
 
 @app.route('/books')
 def listBooks():
@@ -55,4 +60,4 @@ def query_function():
 
 if __name__=="__main__":
 	debug()
-	run(app, host='localhost', port=8080, reloader=True)
+	run(app, host='localhost', port=8082, reloader=True)

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>
+        {{title}}
+        {{content}}
+    </h1>
+    <div>
+        <button id="allBooks" class="float-left submit-button">List all books</button>
+        <button id="singleBooks" class="float-left submit-button">Search Book</button>
+        <button>Search Author</button>
+        <button>Add book</button>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    document.getElementById("allBooks").onclick = function () {
+        location.href = '/books';
+    };
+
+    document.getElementById("singleBooks").onclick = function(){
+        var input1 = document.createElement("input");
+        input1.type = "text";
+        var input2 = document.createElement("input");
+        input2.type = "submit";
+        input2.id = "book";
+        document.body.insertBefore(input1, document.body.lastChild);
+        document.body.insertBefore(input2, input1);
+    };
+
+    document.getElementById("book").onclick = function () {
+        location.href = '/books';
+    };
+
+</script>
