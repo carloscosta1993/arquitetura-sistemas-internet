@@ -18,8 +18,11 @@ def index():
 	return template('index.html', info)
 
 @app.route('/books')
-def listBooks():
+def list_books():
 	allbooks = bd.listBooks()
+	books = allbooks['books']
+	# print books[1]
+	# return template('listAll.html', books)
 	return allbooks
 
 @app.route('/authors')
@@ -60,4 +63,4 @@ def query_function():
 
 if __name__=="__main__":
 	debug()
-	run(app, host='localhost', port=8082, reloader=True)
+	run(app, host='localhost', port=8080, reloader=True)

@@ -5,16 +5,54 @@
     <title>Title</title>
 </head>
 <body>
+
     <h1>
         {{title}}
         {{content}}
     </h1>
+<div class="row">
     <div>
         <button id="allBooks" class="float-left submit-button">List all books</button>
-        <button id="singleBooks" class="float-left submit-button">Search Book</button>
-        <button>Search Author</button>
-        <button>Add book</button>
+        <button id="search" class="float-left submit-button">Search</button>
+        <button id="add" class="float-left submit-button">Add book</button>
     </div>
+
+    <div id="addDiv" style="display: none;">
+        <div>
+            <form action="/createbook">
+                    <div>
+                        <input type="text" id="addAuthor" name="addAuthor" placeholder="Author" />
+                        <input type="text" id="addTitle" name="addTitle" placeholder="Title" />
+                        <input type="text" id="addYear" name="addYear" placeholder="Year" />
+                        <button type="submit">ADD</button>
+                    </div>
+            </form>
+        </div>
+        <button id="closeAdd" class="float-left submit-button">Close</button>
+    </div>
+
+    <div id="searchDiv" style="display: none;">
+        <div>
+            <form action="/book" method="get">
+                    <div>
+                        <label>Book by id:</label>
+                        <input type="text" id="book" name="authorName" />
+                        <button type="submit">SEARCH</button>
+                    </div>
+            </form>
+        </div>
+        <div>
+            <form action="/author" method="get">
+                    <div>
+                        <label>Author:</label>
+                        <input type="text" id="author" name="authorName" />
+                        <button type="submit">SEARCH</button>
+                    </div>
+            </form>
+        </div>
+        <button id="closeSearch" class="float-left submit-button">Close</button>
+    </div>
+</div>
 </body>
 </html>
 
@@ -23,18 +61,18 @@
         location.href = '/books';
     };
 
-    document.getElementById("singleBooks").onclick = function(){
-        var input1 = document.createElement("input");
-        input1.type = "text";
-        var input2 = document.createElement("input");
-        input2.type = "submit";
-        input2.id = "book";
-        document.body.insertBefore(input1, document.body.lastChild);
-        document.body.insertBefore(input2, input1);
+    document.getElementById("search").onclick = function(){
+        document.getElementById('searchDiv').style.display = 'block';
+    };
+    document.getElementById("add").onclick = function(){
+        document.getElementById('addDiv').style.display = 'block';
     };
 
-    document.getElementById("book").onclick = function () {
-        location.href = '/books';
+    document.getElementById("closeSearch").onclick = function(){
+        document.getElementById('searchDiv').style.display = 'none';
     };
 
+    document.getElementById("closeAdd").onclick = function(){
+        document.getElementById('addDiv').style.display = 'none';
+    };
 </script>

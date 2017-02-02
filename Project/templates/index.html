@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Material Login Form</title>
+  <title>IST Application</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
@@ -17,26 +17,24 @@
   <div class="card"></div>
   <div class="card">
     <h2 class="title">Identifier</h2>
-    <form action="/user" method="post">
       <div class="input-container">
-        <input type="text" id="Identifier" name ="identifier" required="required"/>
-        <label for="Identifier">Identifier</label>
+        <input type="text" id="identifier" name ="identifier" required="required"/>
+        <label for="identifier">Identifier</label>
         <div class="bar"></div>
       </div>
       <div class="button-container">
-        <button><span>Go</span></button>
+        <button id="login"><span>Go</span></button>
       </div>
-    </form>
     <form>
       <h3 style="text-align: center; margin-bottom: auto"> <br>If you don't have an identifier, please register.</h3>
       <h2 class="title">Register</h2>
       <div class="input-container">
-        <input type="text" id="Username" required="required"/>
-        <label for="Username">Username</label>
+        <input type="text" id="username" name="username" required="required"/>
+        <label for="username">Username</label>
         <div class="bar"></div>
       </div>
       <div class="button-container">
-        <button><span>Go</span></button>
+        <button type="submit" id="register"><span>Go</span></button>
       </div>
     </form>
   </div>

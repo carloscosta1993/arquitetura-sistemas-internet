@@ -12,43 +12,45 @@
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand">Welcome <span id="username">{{username}}</span><span id="identifier" style="display: none">{{identifier}}</span></a>
+        <a class="navbar-brand">Welcome Admin!</a>
       </div>
     </div>
   </div>
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-6">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Available Room's
+            <button class="btn-info" id="campus" name="campus">Search available room</button>
           </div>
           <div class="chart-stage">
-              <table class="table table-striped checkTable" id="checkTable">
+              <div id="selection" style="display:none"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            <button class="btn-info" id="roomsButton">Rooms being used</button>
+          </div>
+          <div class="chart-stage">
+            <div id="rooms" style="display: none">
+            <table class="table table-striped" id="roomsTable">
 			  <tr>
-                  <th>Rooms</th>
-                  <th>Available Seats</th>
-                  <th>Check-in/out</th>
-                  <th>Who is in this room?</th>
+			    <th>Room</th>
+			    <th>Available Seats</th>
+			    <th>Manage</th>
 			  </tr>
-             {% for room in rooms %}
-              <tr>
+              {% for room in rooms %}
+                <tr>
                   <td>{{room[0]}}</td>
                   <td>{{room[1]}}</td>
-                  {% if user_room == room[0] %}
-                  <td><button class="btn-danger">Check-out</button></td>
-                  {% else %}
-                  <td><button class="btn-success">Check-in</button></td>
-                  {% endif %}
-                  <td>
-                    <input type="button" class="btn-info" id="see" value="See">
-                    <div id="{{room[0]}}" style="display:none"></div>
-                  </td>
-              </tr>
-             {% endfor %}
-
-		</table>
+                  <td><input type="button" class="btn-danger" id="disable" value="Disable"></td>
+                </tr>
+              {% endfor %}
+		    </table>
+        </div>
           </div>
         </div>
       </div>
@@ -58,7 +60,7 @@
   <script type="text/javascript" src="/js/jquery.min.js"></script>
   <script type="text/javascript" src="/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/js/bootstrap.js"></script>
-  <script type="text/javascript" src="/js/user.js"></script>
+  <script type="text/javascript" src="/js/admin.js"></script>
 
 </body>
 </html>
